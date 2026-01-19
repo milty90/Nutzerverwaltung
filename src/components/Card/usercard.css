@@ -1,0 +1,32 @@
+.custom-card {
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  width: 500px;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.custom-card img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+.user-name {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin: 8px 0 4px 0;
+}
+.custom-card p {
+  font-size: 1rem;
+  color: #666;
+}
+.custom-card .user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

@@ -1,0 +1,88 @@
+.root-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.logo {
+  height: auto;
+  margin: 16px 8px 8px 8px;
+}
+
+.line {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #0080c7;
+  margin-bottom: 1.5rem;
+}
+
+.root-header {
+  background-color: #ffffff;
+  height: 88px;
+  width: 100%;
+  color: #27272a;
+  text-align: start;
+}
+
+.root-body {
+  display: flex;
+  margin: 0;
+  flex: 1 0 100%;
+}
+.root-nav {
+  display: flex;
+  flex-direction: column;
+  background-color: #18181b;
+  padding: 16px;
+  width: 200px;
+  gap: 0.5rem;
+}
+
+.sidebar-icon {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+  margin: 0 0.5rem 0 1rem;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  color: #09090b;
+  align-items: center;
+  background-color: #f4f4f5;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+
+button {
+  color: #27272a;
+  width: 200px;
+  text-transform: none !important;
+  font-weight: bolder !important;
+  color: #f4f4f5 !important;
+  justify-content: left !important;
+
+  padding: 0.75rem;
+}
+
+button:hover {
+  background-color: #0080c7;
+  color: #ffffff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto rgb(0, 128, 199);
+}
+
+.css-1kuwa16-MuiCardMedia-root {
+  margin: 1rem 0.5rem 0.5rem 1.5rem;
+  height: 20% !important;
+  width: 20% !important;
+}
