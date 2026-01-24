@@ -3,47 +3,108 @@ import UserCard from "../../components/Card/UserCard";
 
 function Overview() {
   return (
-    <>
-      <h1>Overview Page</h1>
-      <div
-        style={{
-          backgroundColor: "#F5F5F4",
-          border: "10px solid #F59E0B",
-          color: "#44403C",
-          padding: "1rem",
-        }}
-      >
-        Gray + Orange
-      </div>
-      <div
-        style={{
-          backgroundColor: "#1C1917",
-          border: "10px solid #EA580C",
-          color: "#dbc8b5",
-          padding: "1rem",
-        }}
-      >
-        Gray + Orange
-      </div>
-      <Card style={{ marginTop: "1rem", padding: "1rem" }}>
-        first MUI Card component
-      </Card>
-      <Card
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(2, 1fr)",
+        gap: "1rem",
+      }}
+    >
+      {/* <Card
         style={{
           marginTop: "1rem",
           padding: "1rem",
-          backgroundColor: "#1C1917",
-          color: "#dbc8b5",
+          textAlign: "center",
+          color: "#554434",
         }}
       >
-        last MUI Card component with custom styles.
-      </Card>
+        Kein Nutzer gefunden.
+      </Card> */}
+
       <UserCard
         imageUrl=" https://randomuser.me/api/portraits/men/1.jpg"
         userName="Max Mustermann"
-        userDescription="Ipsum dolor sit amet."
+        userBirthday="01.01.1990"
+        userCity="Musterstadt"
+        userGender="Männlich"
+        userPhone="+49 123 4567890"
+        userEmail="max.mustermann@example.com"
+        userWebsite="www.maxmustermann.de"
       />
-    </>
+      <UserCard
+        imageUrl=" https://randomuser.me/api/portraits/women/43.jpg"
+        userName="Erika Musterfrau"
+        userBirthday="01.01.1990"
+        userCity="Musterstadt"
+        userGender="Weiblich"
+        userPhone="+49 123 4567890"
+        userEmail="erika.musterfrau@example.com"
+        userWebsite="www.erikamusterfrau.de"
+      />
+
+      <UserCard
+        imageUrl=" https://randomuser.me/api/portraits/men/1.jpg"
+        userName="Max Mustermann"
+        userBirthday="01.01.1990"
+        userCity="Musterstadt"
+        userGender="Männlich"
+        userPhone="+49 123 4567890"
+        userEmail="max.mustermann@example.com"
+        userWebsite="www.maxmustermann.de"
+      />
+      <UserCard
+        imageUrl=" https://randomuser.me/api/portraits/women/43.jpg"
+        userName="Erika Musterfrau"
+        userBirthday="01.01.1990"
+        userCity="Musterstadt"
+        userGender="Weiblich"
+        userPhone="+49 123 4567890"
+        userEmail="erika.musterfrau@example.com"
+        userWebsite="www.erikamusterfrau.de"
+      />
+
+      <UserCard
+        imageUrl=" https://randomuser.me/api/portraits/men/1.jpg"
+        userName="Max Mustermann"
+        userBirthday="01.01.1990"
+        userCity="Musterstadt"
+        userGender="Männlich"
+        userPhone="+49 123 4567890"
+        userEmail="max.mustermann@example.com"
+        userWebsite="www.maxmustermann.de"
+      />
+      <UserCard
+        imageUrl=" https://randomuser.me/api/portraits/women/43.jpg"
+        userName="Erika Musterfrau"
+        userBirthday="01.01.1990"
+        userCity="Musterstadt"
+        userGender="Weiblich"
+        userPhone="+49 123 4567890"
+        userEmail="erika.musterfrau@example.com"
+        userWebsite="www.erikamusterfrau.de"
+      />
+
+      <UserCard
+        imageUrl=" https://randomuser.me/api/portraits/men/1.jpg"
+        userName="Max Mustermann"
+        userBirthday="01.01.1990"
+        userCity="Musterstadt"
+        userGender="Männlich"
+        userPhone="+49 123 4567890"
+        userEmail="max.mustermann@example.com"
+        userWebsite="www.maxmustermann.de"
+      />
+      <UserCard
+        imageUrl=" https://randomuser.me/api/portraits/women/43.jpg"
+        userName="Erika Musterfrau"
+        userBirthday="01.01.1990"
+        userCity="Musterstadt"
+        userGender="Weiblich"
+        userPhone="+49 123 4567890"
+        userEmail="erika.musterfrau@example.com"
+        userWebsite="www.erikamusterfrau.de"
+      />
+    </div>
   );
 }
 export default Overview;

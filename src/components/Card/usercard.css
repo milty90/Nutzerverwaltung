@@ -1,14 +1,17 @@
 .custom-card {
-  margin: 1rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: row;
   border: 1px solid #ddd;
+  background-color: #f4f4f4;
   border-radius: 8px;
-  padding: 16px;
-  width: 500px;
+  padding: 1rem;
+  width: 640px;
   text-align: left;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(0deg, #1c1917, #1c1917 70%, white 49%, white 51%);
+  box-shadow:
+    0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 .image-container {
   display: flex;
@@ -18,46 +21,57 @@
 }
 .custom-card img {
   border-radius: 50%;
-  border: whitesmoke 2px solid;
+  border: #55443470 2px solid;
   width: 100px;
   height: 100px;
   object-fit: cover;
   margin-right: 1rem;
 }
 .user-name {
-  font-size: 2rem;
-  font-weight: bolder;
-
-  margin: 0;
-  padding: 0;
-}
-.custom-card p {
   font-size: 1rem;
+  font-weight: bolder;
 }
+
 .name-container {
   height: 20%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex: 0 0 auto;
 }
+
 .description-container {
   height: 80%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.user-description {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  flex: 0 0 auto;
-}
-.user-description {
-  font-size: 1.2rem;
-  color: #dbc8b5;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #554434;
   margin: 0;
+  & .user-description_icon {
+    font-size: 1.1rem;
+    color: rgba(85, 68, 52, 0.9);
+  }
 }
+
 .user-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #666;
+  color: #554434;
   top: 0;
   flex: 1;
+}
+
+.close-icon {
+  cursor: pointer;
+  color: #aa4444;
 }

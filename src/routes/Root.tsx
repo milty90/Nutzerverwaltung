@@ -7,7 +7,7 @@ function Root() {
   return (
     <div className="root-body">
       <nav className="root-nav">
-        <img className="logo" src="./public/logo.png" alt="" />
+        <img className="logo" src="./public/dark-logo.png" alt="" />
 
         <hr className="line" />
 
@@ -59,7 +59,7 @@ function Root() {
       </nav>
       <div className="root-container">
         <header className="root-header">
-          <h1>{headerTitle}</h1>
+          <h1 className="header">{headerTitle}</h1>
         </header>
         <main className="main-content">
           <Outlet />
