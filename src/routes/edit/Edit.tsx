@@ -80,7 +80,7 @@ function Edit() {
           />
         }
       >
-        Erstellen
+        Speichern
       </Button>
     </>
   );

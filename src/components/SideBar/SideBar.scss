@@ -3,9 +3,9 @@
   display: flex;
   flex-direction: column;
   background-color: variables.$secondary-dark-color;
-  padding: variables.$base-unit;
+  padding: variables.$unit;
   width: 200px;
-  gap: variables.$base-unit-half;
+  gap: variables.$unit-half;
 }
 
 .logo {

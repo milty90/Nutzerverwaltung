@@ -16,6 +16,7 @@ interface UserCardProps {
   userPhone: string;
   userEmail: string;
   userWebsite: string;
+  removeUser?: () => void;
 }
 
 function UserCard({
@@ -27,6 +28,7 @@ function UserCard({
   userPhone,
   userEmail,
   userWebsite,
+  removeUser,
 }: UserCardProps) {
   return (
     <div className="custom-card">
@@ -36,7 +38,7 @@ function UserCard({
       <div className="user-info">
         <div className="name-container">
           <p className="user-name">{userName}</p>
-          <HighlightOffIcon className="close-icon" />
+          <HighlightOffIcon onClick={removeUser} className="close-icon" />
         </div>
         <div className="description-container">
           <p className="user-description">

@@ -1,13 +1,13 @@
 @use "../../styles/variables";
 
 .custom-card {
-  margin-top: variables.$base-unit;
+  margin-top: variables.$unit;
   display: flex;
   flex-direction: row;
   border: 1px solid variables.$input-border-color;
   background-color: variables.$primary-background-color;
   border-radius: variables.$border-radius;
-  padding: variables.$base-unit;
+  padding: variables.$unit;
   width: 40rem;
   text-align: left;
   box-shadow: variables.$user-card-box-shadow;
@@ -22,15 +22,15 @@
 
 .custom-card img {
   border-radius: 50%;
-  border: lighten(variables.$card-text-color, 70%) variables.$border-size solid;
+  border: lighten(variables.$card-text-color, 50%) variables.$border-size solid;
   width: 6.25rem;
   height: 6.25rem;
   object-fit: cover;
-  margin-right: variables.$base-unit;
+  margin-right: variables.$unit;
 }
 
 .user-name {
-  font-size: variables.$base-unit;
+  font-size: variables.$unit;
   font-weight: bolder;
 }
 
@@ -48,18 +48,18 @@
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   justify-content: space-between;
-  margin-top: variables.$base-unit-half;
+  margin-top: variables.$unit-half;
 }
 
 .user-description {
   display: flex;
   align-items: center;
-  gap: variables.$base-unit-half;
+  gap: variables.$unit-half;
   font-size: variables.$font-size;
   color: variables.$card-text-color;
   margin: 0;
   & .user-description__icon {
-    font-size: variables.$base-unit;
+    font-size: variables.$unit;
     color: lighten(variables.$card-text-color, 10%);
   }
 }

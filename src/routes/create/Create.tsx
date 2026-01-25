@@ -2,6 +2,9 @@ import DropDownList from "../../components/DropDown/DropDownList";
 import InputField from "../../components/InputField/InputField";
 import { Button } from "@mui/material";
 import useFromInput from "../../hooks/useFromInput";
+import { userContext } from "../../context/userContext";
+import { useContext } from "react";
+import type { Gender } from "../../types/User";
 
 function Create() {
   const userNameProps = useFromInput("", true);
@@ -11,6 +14,48 @@ function Create() {
   const phoneProps = useFromInput("", true);
   const websiteProps = useFromInput("", true);
   const genderProps = useFromInput("", true);
+
+  const { dispatchUsers } = useContext(userContext);
+
+  function validateAll() {
+    return (
+      userNameProps.validate(userNameProps.inputValue) &&
+      birthDateProps.validate(birthDateProps.inputValue) &&
+      emailProps.validate(emailProps.inputValue) &&
+      addressProps.validate(addressProps.inputValue) &&
+      phoneProps.validate(phoneProps.inputValue) &&
+      websiteProps.validate(websiteProps.inputValue) &&
+      genderProps.validate(genderProps.inputValue)
+    );
+  }
+
+  function handleCreate() {
+    if (!validateAll()) {
+      alert("Bitte füllen Sie alle erforderlichen Felder aus.");
+      return;
+    }
+    dispatchUsers({
+      type: "ADD_USER",
+      user: {
+        id: Date.now(),
+        name: userNameProps.inputValue,
+        birthDate: birthDateProps.inputValue,
+        email: emailProps.inputValue,
+        address: addressProps.inputValue,
+        phone: phoneProps.inputValue,
+        website: websiteProps.inputValue,
+
+        gender: genderProps.inputValue as string as Gender,
+        imageUrl:
+          genderProps.inputValue === "Männlich"
+            ? "https://randomuser.me/api/portraits/men/1.jpg"
+            : genderProps.inputValue === "Weiblich"
+              ? "https://randomuser.me/api/portraits/women/43.jpg"
+              : "https://randomuser.me/api/portraits/lego/1.jpg",
+      },
+    });
+    alert("Benutzer erfolgreich erstellt!");
+  }
 
   return (
     <>
@@ -35,9 +80,9 @@ function Create() {
         onChange={genderProps.handleChange}
         options={[
           { value: "", label: "Bitte wählen" },
-          { value: "male", label: "Männlich" },
-          { value: "female", label: "Weiblich" },
-          { value: "other", label: "Divers" },
+          { value: "Männlich", label: "Männlich" },
+          { value: "Weiblich", label: "Weiblich" },
+          { value: "Andere", label: "Divers" },
         ]}
         error={genderProps.error}
       />
@@ -74,6 +119,7 @@ function Create() {
         error={websiteProps.error}
       />
       <Button
+        onClick={handleCreate}
         className="sidebar-button"
         disabled={
           (userNameProps.error && userNameProps.inputValue === "") ||

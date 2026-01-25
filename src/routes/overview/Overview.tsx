@@ -1,6 +1,24 @@
 import UserCard from "../../components/Card/UserCard";
+import { storage } from "../../utils/localStorageService";
+import { useContext } from "react";
+import { userContext } from "../../context/userContext";
+import type { User } from "../../types/User";
+
+function getUsers(): User[] | null {
+  return storage.get("users");
+}
+
+function removeUser(userId: number) {
+  const { dispatchUsers } = useContext(userContext);
+  const users = getUsers();
+  if (!users) return;
+  const userToRemove = users.find((user) => user.id === userId);
+  if (!userToRemove) return;
+  dispatchUsers({ type: "REMOVE_USER", user: userToRemove });
+}
 
 function Overview() {
+  const users: User[] = getUsers() || [];
   return (
     <div
       style={{
@@ -9,100 +27,20 @@ function Overview() {
         gap: "1rem",
       }}
     >
-      {/* <Card
-        style={{
-          marginTop: "1rem",
-          padding: "1rem",
-          textAlign: "center",
-          color: "#554434",
-        }}
-      >
-        Kein Nutzer gefunden.
-      </Card> */}
-
-      <UserCard
-        imageUrl=" https://randomuser.me/api/portraits/men/1.jpg"
-        userName="Max Mustermann"
-        userBirthday="01.01.1990"
-        userCity="Musterstadt"
-        userGender="Männlich"
-        userPhone="+49 123 4567890"
-        userEmail="max.mustermann@example.com"
-        userWebsite="www.maxmustermann.de"
-      />
-      <UserCard
-        imageUrl=" https://randomuser.me/api/portraits/women/43.jpg"
-        userName="Erika Musterfrau"
-        userBirthday="01.01.1990"
-        userCity="Musterstadt"
-        userGender="Weiblich"
-        userPhone="+49 123 4567890"
-        userEmail="erika.musterfrau@example.com"
-        userWebsite="www.erikamusterfrau.de"
-      />
-
-      <UserCard
-        imageUrl=" https://randomuser.me/api/portraits/men/1.jpg"
-        userName="Max Mustermann"
-        userBirthday="01.01.1990"
-        userCity="Musterstadt"
-        userGender="Männlich"
-        userPhone="+49 123 4567890"
-        userEmail="max.mustermann@example.com"
-        userWebsite="www.maxmustermann.de"
-      />
-      <UserCard
-        imageUrl=" https://randomuser.me/api/portraits/women/43.jpg"
-        userName="Erika Musterfrau"
-        userBirthday="01.01.1990"
-        userCity="Musterstadt"
-        userGender="Weiblich"
-        userPhone="+49 123 4567890"
-        userEmail="erika.musterfrau@example.com"
-        userWebsite="www.erikamusterfrau.de"
-      />
-
-      <UserCard
-        imageUrl=" https://randomuser.me/api/portraits/men/1.jpg"
-        userName="Max Mustermann"
-        userBirthday="01.01.1990"
-        userCity="Musterstadt"
-        userGender="Männlich"
-        userPhone="+49 123 4567890"
-        userEmail="max.mustermann@example.com"
-        userWebsite="www.maxmustermann.de"
-      />
-      <UserCard
-        imageUrl=" https://randomuser.me/api/portraits/women/43.jpg"
-        userName="Erika Musterfrau"
-        userBirthday="01.01.1990"
-        userCity="Musterstadt"
-        userGender="Weiblich"
-        userPhone="+49 123 4567890"
-        userEmail="erika.musterfrau@example.com"
-        userWebsite="www.erikamusterfrau.de"
-      />
-
-      <UserCard
-        imageUrl=" https://randomuser.me/api/portraits/men/1.jpg"
-        userName="Max Mustermann"
-        userBirthday="01.01.1990"
-        userCity="Musterstadt"
-        userGender="Männlich"
-        userPhone="+49 123 4567890"
-        userEmail="max.mustermann@example.com"
-        userWebsite="www.maxmustermann.de"
-      />
-      <UserCard
-        imageUrl=" https://randomuser.me/api/portraits/women/43.jpg"
-        userName="Erika Musterfrau"
-        userBirthday="01.01.1990"
-        userCity="Musterstadt"
-        userGender="Weiblich"
-        userPhone="+49 123 4567890"
-        userEmail="erika.musterfrau@example.com"
-        userWebsite="www.erikamusterfrau.de"
-      />
+      {users.map((user) => (
+        <UserCard
+          key={user.id}
+          imageUrl={user.imageUrl}
+          userName={user.name}
+          userBirthday={user.birthDate}
+          userCity={user.address}
+          userGender={user.gender}
+          userPhone={user.phone}
+          userEmail={user.email}
+          userWebsite={user.website}
+          removeUser={() => removeUser(user.id)}
+        />
+      ))}
     </div>
   );
 }
