@@ -9,27 +9,27 @@ export type UserAction = {
 };
 
 export function userReducer(state: UserState, action: UserAction) {
-  let updatetState: UserState;
+  let updatedState: UserState;
 
   switch (action.type) {
     case "ADD_USER":
-      updatetState = [...state, action.user];
+      updatedState = [...state, action.user];
       break;
     case "REMOVE_USER":
-      updatetState = state.filter((user) => user.id !== action.user.id);
+      updatedState = state.filter((user) => user.id !== action.user.id);
       break;
     case "UPDATE_USER":
-      updatetState = state.map((user) =>
+      updatedState = state.map((user) =>
         user.id === action.user.id ? action.user : user,
       );
       break;
     default:
-      updatetState = state;
+      updatedState = state;
       break;
   }
 
-  storage.set("users", updatetState);
-  return updatetState;
+  storage.set("users", updatedState);
+  return updatedState;
 }
 
 export default userReducer;

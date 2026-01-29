@@ -94,9 +94,13 @@
     background-color: variables.$primary-background-color;
     border-radius: variables.$border-radius;
     padding: variables.$unit;
-    width: 40rem;
+    width: 35rem;
     text-align: left;
     box-shadow: variables.$user-card-box-shadow;
+
+    &:hover {
+      box-shadow: 0 4px 4px variables.$input-border-color;
+    }
   }
 
   .image-container {
@@ -164,5 +168,9 @@
     cursor: pointer;
     color: variables.$error-color;
     z-index: 1;
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }

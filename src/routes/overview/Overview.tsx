@@ -4,6 +4,8 @@ import { userContext } from "../../context/userContext";
 import type { User } from "../../types/User";
 import { useNavigate } from "react-router-dom";
 import { headerContext } from "../../context/headerContext";
+import "./Overview.scss";
+import { toast } from "react-toastify";
 
 function Overview() {
   const navigate = useNavigate();
@@ -12,13 +14,14 @@ function Overview() {
 
   useEffect(() => {
     setHeaderTitle("Benutzerübersicht");
-  }, []);
+  }, [setHeaderTitle]);
 
-  function handleRemove(userId: number) {
+  function handleRemove(userId: number, name: string) {
     dispatchUsers({
       type: "REMOVE_USER",
-      user: { id: userId } as User,
+      user: { id: userId, name: name } as User,
     });
+    toast.info(`Benutzer: ${name} erfolgreich entfernt! 🗑️`);
   }
 
   function handleEdit(userId: number) {
@@ -26,18 +29,17 @@ function Overview() {
   }
 
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(1, 1fr)",
-        gap: "1rem",
-      }}
-    >
+    <div className="overview">
+      {users.length === 0 && (
+        <p className="no-users-message">
+          Keine Benutzer vorhanden. Bitte erstellen Sie einen neuen Benutzer.
+        </p>
+      )}
       {users.map((user) => (
         <UserCard
           key={user.id}
           user={user}
-          removeUser={handleRemove}
+          removeUser={() => handleRemove(user.id, user.name)}
           editUser={handleEdit}
         />
       ))}

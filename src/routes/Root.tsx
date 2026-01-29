@@ -16,6 +16,11 @@ function Root() {
           </header>
           <main className="main-content">
             <Outlet />
+            {/* Footer */}
+            <div className="footer">
+              &copy; {new Date().getFullYear()} LOOP Nutzerverwaltung. Alle
+              Rechte vorbehalten.
+            </div>
           </main>
         </div>
       </div>

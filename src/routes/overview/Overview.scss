@@ -1,0 +1,23 @@
+@use "../../styles/_variables.scss";
+@use "../../styles/_mixins.scss";
+
+.overview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 1rem;
+}
+
+.no-users-message {
+  font-family: variables.$font-family-base;
+  font-size: variables.$unit;
+  color: variables.$secondary-dark-color;
+  margin-top: variables.$unit;
+}
+
+@include mixins.mobile {
+  .overview {
+    flex-direction: column;
+    align-items: center;
+  }
+}

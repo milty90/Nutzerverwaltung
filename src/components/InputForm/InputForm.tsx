@@ -3,6 +3,7 @@ import InputField from "../../components/InputField/InputField";
 import useFromInput from "../../hooks/useFormInput";
 import { Button } from "@mui/material";
 import type { Gender, User } from "../../types/User";
+import { toast } from "react-toastify";
 
 type UserFormProps = {
   user?: User | null;
@@ -40,6 +41,7 @@ function InputForm({ user, onSubmit }: UserFormProps) {
 
   function handleSubmit() {
     if (!validateAll()) {
+      toast.error("Bitte füllen Sie alle Pflichtfelder aus.");
       return;
     }
     if (onSubmit) {

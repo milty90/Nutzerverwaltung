@@ -23,8 +23,7 @@
     color: #09090b;
     padding: 0.5rem;
     background-color: variables.$primary-background-color;
-
-    height: 150vh;
+    height: 193vh;
   }
 
   .root-header {
@@ -42,6 +41,13 @@
     align-items: center;
     color: variables.$color-dark;
   }
+
+  .footer {
+    font-size: 0.6rem;
+    color: variables.$color-dark;
+    margin-top: auto;
+    padding: 1rem 0;
+  }
 }
 @include mixins.desktop {
   .main-content {
@@ -52,7 +58,7 @@
     background-color: variables.$primary-background-color;
     width: fit-content;
     height: 100%;
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 2rem 0.5rem 2rem;
   }
 
   .root-header {
@@ -68,6 +74,12 @@
     font-weight: bold;
     margin-left: 2.2rem;
     color: variables.$color-dark;
+  }
+  .footer {
+    font-size: 0.8rem;
+    color: variables.$color-dark;
+    margin-top: auto;
+    padding-top: 2rem;
   }
 }
 

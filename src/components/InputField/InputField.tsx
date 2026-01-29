@@ -25,7 +25,6 @@ function InputField({
         className={`input-field${error ? " input-field--error" : ""}`}
         type={type}
         lang="en-US"
-        pattern={type === "tel" ? "[0-9]{3}-[0-9]{2}-[0-9]{3}" : undefined}
         placeholder={
           error ? `Bitte ${placeholder.toLowerCase()} eingeben` : placeholder
         }
