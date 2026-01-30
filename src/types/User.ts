@@ -1,5 +1,3 @@
-import type { JSX } from "react";
-
 export const Gender = {
   MALE: "Männlich",
   FEMALE: "Weiblich",
