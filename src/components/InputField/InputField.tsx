@@ -20,9 +20,9 @@ function InputField({
 }: Props) {
   return (
     <div className="input-container">
-      <p className="input-label">{title}</p>
+      <p className="input-container__label">{title}</p>
       <input
-        className={`input-field${error ? " input-field--error" : ""}`}
+        className={`input-container__field${error ? " input-container__field--error" : ""}`}
         type={type}
         lang="en-US"
         placeholder={

@@ -29,7 +29,7 @@ function Edit() {
       user: updatedUser,
     });
     navigate("/overview");
-    toast.info(`Benutzer: ${updatedUser.name} erfolgreich aktualisiert! ✏️`);
+    toast.info(`Benutzer: ${updatedUser.name} erfolgreich aktualisiert!  ✏️`);
   }
 
   if (!editUser) {

@@ -50,7 +50,6 @@ function App() {
         position="bottom-right"
         autoClose={3000}
         hideProgressBar={true}
-        closeOnClick
         pauseOnHover
       />
     </>

@@ -5,62 +5,70 @@
   display: flex;
   flex-direction: column;
   margin-bottom: variables.$input-field-margin-bottom;
-}
 
-.dropdown-label {
-  font-weight: bold;
-  font-size: small;
-  margin: variables.$input-field-margin;
-}
+  &__label {
+    font-weight: bold;
+    font-size: small;
+    margin: variables.$input-field-margin;
+  }
 
-.dropdown-select {
-  -webkit-appearance: none;
-  appearance: none;
-  font-size: variables.$font-size;
-  padding: variables.$input-field-padding;
-  height: 3.25rem;
-  color: variables.$input-text-color;
-  border: variables.$border-size solid variables.$input-border-color;
-  background-color: variables.$color-white;
-  border-radius: variables.$border-radius;
-  background-image: variables.$arrow-icon-url;
-  background-repeat: no-repeat;
-  background-position: calc(100% - variables.$border-radius) center;
-  background-size: 20px;
+  &__select {
+    -webkit-appearance: none;
+    appearance: none;
+    font-size: variables.$font-size;
+    padding: variables.$input-field-padding;
+    height: 3.25rem;
+    color: variables.$input-text-color;
+    border: variables.$border-size solid variables.$input-border-color;
+    background-color: variables.$color-white;
+    border-radius: variables.$border-radius;
+    background-image: variables.$arrow-icon-url;
+    background-repeat: no-repeat;
+    background-position: calc(100% - variables.$border-radius) center;
+    background-size: 20px;
+  }
+
+  &__option {
+    padding: variables.$input-field-padding;
+  }
+
+  &__select:focus {
+    border: variables.$border-size solid variables.$primary-color;
+    outline: none;
+  }
+
+  &__select--error {
+    border: variables.$border-size solid variables.$error-color;
+  }
 }
 
 @include mixins.mobile {
   .dropdown-container {
     width: 100%;
     max-width: 350px;
-  }
 
-  .dropdown-select {
-    font-size: 16px;
-    background-size: 24px;
+    &__select {
+      font-size: variables.$font-size;
+      background-size: 24px;
+    }
+
+    &__option {
+      font-size: variables.$font-size;
+    }
   }
 }
 
 @include mixins.desktop {
   .dropdown-container {
     width: variables.$input-field-width;
+
+    &__select {
+      font-size: variables.$font-size;
+      background-size: 20px;
+    }
+
+    &__option {
+      font-size: variables.$font-size;
+    }
   }
-
-  .dropdown-select {
-    font-size: variables.$font-size;
-    background-size: 20px;
-  }
-}
-
-.dropdown-option {
-  padding: variables.$input-field-padding;
-}
-
-.dropdown-select:focus {
-  border: variables.$border-size solid variables.$primary-color;
-  outline: none;
-}
-
-.dropdown-select--error {
-  border: variables.$border-size solid variables.$error-color;
 }

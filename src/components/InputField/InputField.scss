@@ -5,50 +5,50 @@
   display: flex;
   flex-direction: column;
   margin-bottom: variables.$input-field-margin-bottom;
-}
 
-.input-label {
-  font-weight: bold;
-  font-size: small;
-  margin: variables.$input-field-margin;
-}
+  &__label {
+    font-weight: bold;
+    font-size: small;
+    margin: variables.$input-field-margin;
+  }
 
-.input-field {
-  padding: variables.$input-field-padding;
-  height: 2rem;
-  color: variables.$input-text-color;
-  border: variables.$border-size solid variables.$input-border-color;
-  background-color: variables.$color-white;
-  border-radius: variables.$border-radius;
-  color-scheme: auto;
+  &__field {
+    padding: variables.$input-field-padding;
+    height: 2rem;
+    color: variables.$input-text-color;
+    border: variables.$border-size solid variables.$input-border-color;
+    background-color: variables.$color-white;
+    border-radius: variables.$border-radius;
+    color-scheme: auto;
+  }
+
+  &__field:focus {
+    border: variables.$border-size solid variables.$primary-color;
+    outline: none;
+  }
+
+  &__field--error {
+    border: variables.$border-size solid variables.$error-color;
+  }
 }
 
 @include mixins.mobile {
   .input-container {
     width: 100%;
     max-width: 350px;
-  }
 
-  .input-field {
-    font-size: 16px;
+    &__field {
+      font-size: 16px;
+    }
   }
 }
 
 @include mixins.desktop {
   .input-container {
     width: variables.$input-field-width;
+
+    &__field {
+      font-size: variables.$font-size;
+    }
   }
-
-  .input-field {
-    font-size: variables.$font-size;
-  }
-}
-
-.input-field:focus {
-  border: variables.$border-size solid variables.$primary-color;
-  outline: none;
-}
-
-.input-field--error {
-  border: variables.$border-size solid variables.$error-color;
 }

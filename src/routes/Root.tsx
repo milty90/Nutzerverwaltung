@@ -10,14 +10,14 @@ function Root() {
       <div className="root-body">
         {/* Side Bar*/}
         <SideBar />
-        <div className="root-container">
-          <header className="root-header">
-            <h1 className="header">{headerTitle}</h1>
+        <div className="root-body__container">
+          <header className="root-body__header">
+            <h1 className="root-body__header-title ">{headerTitle}</h1>
           </header>
-          <main className="main-content">
+          <main className="root-body__main-content">
             <Outlet />
             {/* Footer */}
-            <div className="footer">
+            <div className="root-body__footer">
               &copy; {new Date().getFullYear()} LOOP Nutzerverwaltung. Alle
               Rechte vorbehalten.
             </div>

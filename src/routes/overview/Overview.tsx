@@ -16,12 +16,17 @@ function Overview() {
     setHeaderTitle("Benutzerübersicht");
   }, [setHeaderTitle]);
 
-  function handleRemove(userId: number, name: string) {
+  function handleRemove(
+    userId: number,
+    event: React.MouseEvent<SVGSVGElement, MouseEvent>,
+  ) {
+    event.stopPropagation();
     dispatchUsers({
       type: "REMOVE_USER",
-      user: { id: userId, name: name } as User,
+      user: { id: userId } as User,
     });
-    toast.info(`Benutzer: ${name} erfolgreich entfernt! 🗑️`);
+    const userName = users.find((u) => u.id === userId)?.name || "Benutzer";
+    toast.info(`Benutzer: ${userName} erfolgreich entfernt! 🗑️`);
   }
 
   function handleEdit(userId: number) {
@@ -39,8 +44,8 @@ function Overview() {
         <UserCard
           key={user.id}
           user={user}
-          removeUser={() => handleRemove(user.id, user.name)}
-          editUser={handleEdit}
+          removeUser={handleRemove}
+          editUser={() => handleEdit(user.id)}
         />
       ))}
     </div>

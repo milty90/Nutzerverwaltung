@@ -3,7 +3,8 @@
 @use "../../styles/mixins";
 
 @include mixins.mobile {
-  .custom-card {
+  .user-card {
+    position: relative;
     margin-top: variables.$unit;
     display: flex;
     flex-direction: column;
@@ -14,79 +15,85 @@
     width: 16.5rem;
     text-align: left;
     box-shadow: variables.$user-card-box-shadow;
-  }
 
-  .image-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto;
-  }
-
-  .custom-card img {
-    border-radius: 50%;
-    border: variables.$border-size solid
-      color.scale($color: variables.$card-text-color, $lightness: 50%);
-    width: 6.25rem;
-    height: 6.25rem;
-    object-fit: cover;
-    margin-right: variables.$unit;
-  }
-
-  .user-name {
-    font-size: variables.$unit;
-    font-weight: bolder;
-  }
-
-  .name-container {
-    height: 20%;
-    display: flex;
-    align-items: center;
-    gap: variables.$unit;
-    flex: 0 0 auto;
-  }
-
-  .description-container {
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    gap: variables.$unit-half;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-top: variables.$unit-half;
-  }
-
-  .user-description {
-    display: flex;
-    align-items: center;
-    gap: variables.$unit-half;
-    font-size: variables.$font-size;
-    color: variables.$card-text-color;
-    margin: 0;
-    & .user-description__icon {
-      font-size: variables.$unit;
-      color: color.scale($color: variables.$card-text-color, $lightness: 10%);
+    &__image-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
     }
-  }
 
-  .user-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: variables.$card-text-color;
-    top: 0;
-    flex: 1;
-  }
+    img {
+      border-radius: 50%;
+      border: variables.$border-size solid
+        color.scale($color: variables.$card-text-color, $lightness: 50%);
+      width: 6.25rem;
+      height: 6.25rem;
+      object-fit: cover;
+      margin-right: variables.$unit;
+    }
 
-  .close-icon {
-    cursor: pointer;
-    color: variables.$error-color;
-    z-index: 1;
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: variables.$card-text-color;
+      top: 0;
+      flex: 1;
+    }
+
+    &__name-container {
+      height: 20%;
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+    }
+
+    &__user-name {
+      color: variables.$card-text-color;
+      font-size: variables.$unit;
+      font-weight: bolder;
+    }
+
+    &__close-icon {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      cursor: pointer;
+      color: variables.$error-color;
+      z-index: 1;
+    }
+
+    &__description-container {
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      gap: variables.$unit-half;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-top: variables.$unit-half;
+    }
+
+    &__user-description {
+      display: flex;
+      align-items: flex-end;
+      gap: variables.$unit-half;
+      font-size: variables.$font-size;
+      color: variables.$card-text-color;
+      margin: 0;
+
+      &__icon {
+        font-size: variables.$unit-half;
+        color: color.scale($color: variables.$card-text-color, $lightness: 10%);
+      }
+    }
   }
 }
 
 @include mixins.desktop {
-  .custom-card {
+  .user-card {
+    position: relative;
+    cursor: alias;
     margin-top: variables.$unit;
     display: flex;
     flex-direction: row;
@@ -101,76 +108,77 @@
     &:hover {
       box-shadow: 0 4px 4px variables.$input-border-color;
     }
-  }
 
-  .image-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto;
-  }
-
-  .custom-card img {
-    border-radius: 50%;
-    border: variables.$border-size solid
-      color.scale($color: variables.$card-text-color, $lightness: 50%);
-    width: 6.25rem;
-    height: 6.25rem;
-    object-fit: cover;
-    margin-right: variables.$unit;
-  }
-
-  .user-name {
-    font-size: variables.$unit;
-    font-weight: bolder;
-  }
-
-  .name-container {
-    height: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex: 0 0 auto;
-  }
-
-  .description-container {
-    height: 80%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    justify-content: space-between;
-    margin-top: variables.$unit-half;
-  }
-
-  .user-description {
-    display: flex;
-    align-items: center;
-    gap: variables.$unit-half;
-    font-size: variables.$font-size;
-    color: variables.$card-text-color;
-    margin: 0;
-    & .user-description__icon {
-      font-size: variables.$unit;
-      color: color.scale($color: variables.$card-text-color, $lightness: 10%);
+    &__image-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
     }
-  }
 
-  .user-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: variables.$card-text-color;
-    top: 0;
-    flex: 1;
-  }
+    img {
+      border-radius: 50%;
+      border: variables.$border-size solid
+        color.scale($color: variables.$card-text-color, $lightness: 50%);
+      width: 6.25rem;
+      height: 6.25rem;
+      object-fit: cover;
+      margin-right: variables.$unit;
+    }
 
-  .close-icon {
-    cursor: pointer;
-    color: variables.$error-color;
-    z-index: 1;
-    transition: transform 0.3s ease;
-    &:hover {
-      transform: scale(1.1);
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: variables.$card-text-color;
+      top: 0;
+      flex: 1;
+    }
+
+    &__name-container {
+      height: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex: 0 0 auto;
+    }
+
+    &__user-name {
+      font-size: variables.$unit;
+      font-weight: bolder;
+    }
+
+    &__close-icon {
+      cursor: pointer;
+      color: variables.$color-dark;
+      transition: all 0.3s ease;
+      &:hover {
+        transform: scale(1.2);
+        color: variables.$error-color;
+      }
+    }
+
+    &__description-container {
+      height: 80%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      justify-content: space-between;
+      margin-top: variables.$unit-half;
+    }
+
+    &__user-description {
+      display: flex;
+      align-items: flex-end;
+      gap: variables.$unit-half;
+      font-size: variables.$font-size;
+      color: variables.$card-text-color;
+      margin: 0;
+
+      &__icon {
+        font-size: variables.$unit-half;
+        color: color.scale($color: variables.$card-text-color, $lightness: 10%);
+      }
     }
   }
 }

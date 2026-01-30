@@ -1,3 +1,5 @@
+import type { JSX } from "react";
+
 export const Gender = {
   MALE: "Männlich",
   FEMALE: "Weiblich",
@@ -15,5 +17,5 @@ export type User = {
   email: string;
   phone: string;
   website: string;
-  imageUrl: string;
+  img: string;
 };

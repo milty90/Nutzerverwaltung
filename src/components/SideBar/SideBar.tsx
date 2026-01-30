@@ -5,15 +5,15 @@ import "./SideBar.scss";
 function SideBar() {
   return (
     <nav className="root-nav">
-      <img className="logo" src="/dark-logo-text.png" alt="" />
-      <img className="mobile" src="/logo-crop.png" alt="" />
-      <hr className="line" />
+      <img className="root-nav__logo" src="/dark-logo-text.png" alt="" />
+      <img className="root-nav__mobile" src="/logo-crop.png" alt="" />
+      <hr className="root-nav__line" />
 
       <Link to="/overview">
         <Button
           startIcon={
             <img
-              className="sidebar-icon"
+              className="root-nav__sidebar-icon"
               src="/rectangles.svg"
               alt="Overview"
             />
@@ -26,7 +26,11 @@ function SideBar() {
       <Link to="/create">
         <Button
           startIcon={
-            <img className="sidebar-icon" src="/user-plus.svg" alt="Create" />
+            <img
+              className="root-nav__sidebar-icon"
+              src="/user-plus.svg"
+              alt="Create"
+            />
           }
         >
           Erstellen

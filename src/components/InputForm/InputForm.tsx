@@ -44,6 +44,7 @@ function InputForm({ user, onSubmit }: UserFormProps) {
       toast.error("Bitte füllen Sie alle Pflichtfelder aus.");
       return;
     }
+
     if (onSubmit) {
       onSubmit({
         id: user?.id ?? Date.now(),
@@ -54,12 +55,12 @@ function InputForm({ user, onSubmit }: UserFormProps) {
         phone: phoneProps.inputValue,
         website: websiteProps.inputValue,
         gender: genderProps.inputValue as string as Gender,
-        imageUrl:
+        img:
           genderProps.inputValue === "Männlich"
-            ? "https://randomuser.me/api/portraits/men/1.jpg"
+            ? "/public/male.jpg"
             : genderProps.inputValue === "Weiblich"
-              ? "https://randomuser.me/api/portraits/women/43.jpg"
-              : "https://randomuser.me/api/portraits/lego/1.jpg",
+              ? "/public/female.jpg"
+              : "/public/lego.jpg",
       });
     }
   }
@@ -74,6 +75,7 @@ function InputForm({ user, onSubmit }: UserFormProps) {
         value={userNameProps.inputValue}
         error={userNameProps.error}
       />
+
       <InputField
         title={"Geburtsdatum"}
         type={"date"}
@@ -82,6 +84,7 @@ function InputForm({ user, onSubmit }: UserFormProps) {
         value={birthDateProps.inputValue}
         error={birthDateProps.error}
       />
+
       <DropDownList
         label={"Geschlecht"}
         value={genderProps.inputValue}
@@ -94,6 +97,7 @@ function InputForm({ user, onSubmit }: UserFormProps) {
         ]}
         error={genderProps.error}
       />
+
       <InputField
         title={"E-Mail"}
         type={"email"}
@@ -102,6 +106,7 @@ function InputForm({ user, onSubmit }: UserFormProps) {
         value={emailProps.inputValue}
         error={emailProps.error}
       />
+
       <InputField
         title={"Post Adresse"}
         type={"text"}
@@ -141,7 +146,11 @@ function InputForm({ user, onSubmit }: UserFormProps) {
           borderRadius: "4px",
         }}
         startIcon={
-          <img className="sidebar-icon" src="/user-plus.svg" alt="Create" />
+          <img
+            className="root-nav__sidebar-icon"
+            src="/user-plus.svg"
+            alt="Create"
+          />
         }
       >
         Speichern

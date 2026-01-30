@@ -18,9 +18,9 @@ function DropDownList({
 }: DropDownListProps) {
   return (
     <div className="dropdown-container">
-      <p className="dropdown-label">{label}</p>
+      <p className="dropdown-container__label">{label}</p>
       <select
-        className={`dropdown-select${error ? " dropdown-select--error" : ""}`}
+        className={`dropdown-container__select${error ? " dropdown-container__select--error" : ""}`}
         id="gender"
         name="gender"
         value={value}
@@ -29,7 +29,7 @@ function DropDownList({
         {options.map((option) => (
           <option
             key={option.value}
-            className="dropdown-option"
+            className="dropdown-container__option"
             value={option.value}
           >
             {option.label}
