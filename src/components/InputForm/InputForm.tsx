@@ -4,6 +4,7 @@ import useFromInput from "../../hooks/useFormInput";
 import { Button } from "@mui/material";
 import type { Gender, User } from "../../types/User";
 import { toast } from "react-toastify";
+import userPlus from "/user-plus.svg";
 import maleImg from "/male.jpg";
 import femaleImg from "/female.jpg";
 import defaultImg from "/lego.jpg";
@@ -149,11 +150,7 @@ function InputForm({ user, onSubmit }: UserFormProps) {
           borderRadius: "4px",
         }}
         startIcon={
-          <img
-            className="root-nav__sidebar-icon"
-            src="/user-plus.svg"
-            alt="Create"
-          />
+          <img className="root-nav__sidebar-icon" src={userPlus} alt="Create" />
         }
       >
         Speichern

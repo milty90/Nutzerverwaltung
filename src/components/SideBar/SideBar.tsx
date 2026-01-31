@@ -1,12 +1,17 @@
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
+import logoCrop from "/logo-crop.png";
+import darkLogoText from "/dark-logo-text.png";
+import rectangles from "/rectangles.svg";
+import userPlus from "/user-plus.svg";
+
 import "./SideBar.scss";
 
 function SideBar() {
   return (
     <nav className="root-nav">
-      <img className="root-nav__logo" src="/dark-logo-text.png" alt="" />
-      <img className="root-nav__mobile" src="/logo-crop.png" alt="" />
+      <img className="root-nav__logo" src={darkLogoText} alt="Logo" />
+      <img className="root-nav__mobile" src={logoCrop} alt="Logo" />
       <hr className="root-nav__line" />
 
       <Link to="/overview">
@@ -14,7 +19,7 @@ function SideBar() {
           startIcon={
             <img
               className="root-nav__sidebar-icon"
-              src="/rectangles.svg"
+              src={rectangles}
               alt="Overview"
             />
           }
@@ -28,7 +33,7 @@ function SideBar() {
           startIcon={
             <img
               className="root-nav__sidebar-icon"
-              src="/user-plus.svg"
+              src={userPlus}
               alt="Create"
             />
           }
