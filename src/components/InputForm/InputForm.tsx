@@ -57,10 +57,10 @@ function InputForm({ user, onSubmit }: UserFormProps) {
         gender: genderProps.inputValue as string as Gender,
         img:
           genderProps.inputValue === "Männlich"
-            ? "/public/male.jpg"
+            ? "/male.jpg"
             : genderProps.inputValue === "Weiblich"
-              ? "/public/female.jpg"
-              : "/public/lego.jpg",
+              ? "/female.jpg"
+              : "/lego.jpg",
       });
     }
   }
