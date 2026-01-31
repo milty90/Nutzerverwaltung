@@ -15,6 +15,7 @@ const router = createBrowserRouter([
     path: "/Nutzerverwaltung",
     element: <Root />,
     children: [
+      { index: true, element: <Overview /> },
       { path: "overview", element: <Overview /> },
       { path: "create", element: <Create /> },
       { path: "edit/:id", element: <Edit /> },

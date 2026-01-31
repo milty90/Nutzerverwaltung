@@ -4,6 +4,9 @@ import useFromInput from "../../hooks/useFormInput";
 import { Button } from "@mui/material";
 import type { Gender, User } from "../../types/User";
 import { toast } from "react-toastify";
+import maleImg from "/male.jpg";
+import femaleImg from "/female.jpg";
+import defaultImg from "/lego.jpg";
 
 type UserFormProps = {
   user?: User | null;
@@ -57,10 +60,10 @@ function InputForm({ user, onSubmit }: UserFormProps) {
         gender: genderProps.inputValue as string as Gender,
         img:
           genderProps.inputValue === "Männlich"
-            ? "/male.jpg"
+            ? maleImg
             : genderProps.inputValue === "Weiblich"
-              ? "/female.jpg"
-              : "/lego.jpg",
+              ? femaleImg
+              : defaultImg,
       });
     }
   }
