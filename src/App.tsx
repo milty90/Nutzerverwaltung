@@ -1,4 +1,4 @@
-import { createHashRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Root from "./routes/Root";
 import Edit from "./routes/edit/Edit";
@@ -10,18 +10,21 @@ import { userContext } from "./context/userContext";
 import { storage } from "./utils/localStorageService";
 import { ToastContainer } from "react-toastify";
 
-const router = createHashRouter([
-  {
-    path: "/",
-    element: <Root />,
-    children: [
-      { index: true, element: <Overview /> },
-      { path: "overview", element: <Overview /> },
-      { path: "create", element: <Create /> },
-      { path: "edit/:id", element: <Edit /> },
-    ],
-  },
-]);
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Root />,
+      children: [
+        { index: true, element: <Overview /> },
+        { path: "overview", element: <Overview /> },
+        { path: "create", element: <Create /> },
+        { path: "edit/:id", element: <Edit /> },
+      ],
+    },
+  ],
+  { basename: import.meta.env.BASE_URL },
+);
 
 function App() {
   const [users, usersDispatch] = useReducer(
