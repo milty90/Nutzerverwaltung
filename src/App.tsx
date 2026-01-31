@@ -19,10 +19,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     children: [
-      {
-        index: true,
-        element: <Navigate to="overview" replace />,
-      },
+      // {
+      //   index: true,
+      //   element: <Navigate to="overview" replace />,
+      // },
       { path: "overview", element: <Overview /> },
       { path: "create", element: <Create /> },
       { path: "edit/:id", element: <Edit /> },
@@ -49,7 +49,7 @@ function App() {
       <ToastContainer
         position="bottom-right"
         autoClose={3000}
-        hideProgressBar={true}
+        hideProgressBar={false}
         pauseOnHover
       />
     </>
