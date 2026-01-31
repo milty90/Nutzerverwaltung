@@ -4,7 +4,6 @@ import logoCrop from "/logo-crop.png";
 import darkLogoText from "/dark-logo-text.png";
 import rectangles from "/rectangles.svg";
 import userPlus from "/user-plus.svg";
-
 import "./SideBar.scss";
 
 function SideBar() {

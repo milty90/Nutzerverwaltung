@@ -97,7 +97,7 @@ function InputForm({ user, onSubmit }: UserFormProps) {
           { value: "", label: "Bitte wählen" },
           { value: "Männlich", label: "Männlich" },
           { value: "Weiblich", label: "Weiblich" },
-          { value: "Andere", label: "Divers" },
+          { value: "Andere", label: "Andere" },
         ]}
         error={genderProps.error}
       />
